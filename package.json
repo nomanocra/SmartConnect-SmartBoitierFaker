@@ -1,0 +1,28 @@
+{
+  "name": "smart-boitier-faker",
+  "version": "1.0.0",
+  "description": "Backend pour récupérer et servir des données CSV depuis une API externe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "backend",
+    "api",
+    "csv",
+    "express",
+    "iot"
+  ],
+  "author": "",
+  "license": "MIT"
+}
