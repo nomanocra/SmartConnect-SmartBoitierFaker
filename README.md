@@ -78,15 +78,20 @@ Timestamp,Device_Name,Unit,Value,Environment,Log_Level
 
 ## 🛠️ Configuration
 
-Le serveur démarre par défaut sur le port 3000. Vous pouvez modifier le port en définissant la variable d'environnement `PORT` :
+Le serveur démarre par défaut sur le port 3000. Vous pouvez modifier le port en définissant la variable d'environnement `PORT`.
 
-```bash
-PORT=8080 npm start
-```
+### Variables d'environnement
+
+Vous pouvez surcharger les identifiants par défaut en définissant les variables d'environnement suivantes :
+
+- `USERNAME` : Le nom d'utilisateur pour l'accès à l'API.
+- `PASSWORD` : Le mot de passe pour l'accès à l'API.
+
+Ces variables peuvent être définies dans un fichier `config.env` à la racine pour le développement local, ou directement dans l'interface de votre hébergeur (Render, cPanel, etc.).
 
 ## 📝 Notes
 
-- Les données générées couvrent 24 heures avec des intervalles de 5 minutes
+- Les données générées couvrent dynamiquement la période demandée avec des intervalles de 5 minutes.
 - Les valeurs sont générées avec des variations réalistes autour des valeurs de référence
 - L'API simule la validation des credentials et des paramètres
 - Les données sont générées dynamiquement à chaque requête

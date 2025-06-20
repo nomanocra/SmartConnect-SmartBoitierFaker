@@ -3,6 +3,9 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
+// Charger les variables d'environnement depuis config.env
+require('dotenv').config({ path: './config.env' });
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -104,8 +107,11 @@ app.get('/query.php', (req, res) => {
       });
     }
 
-    // Vérification des credentials (simulation)
-    if (username !== 'test' || password !== 'test1234') {
+    // Vérification des credentials avec fallback
+    const validUsername = process.env.USERNAME || 'test';
+    const validPassword = process.env.PASSWORD || 'test1234';
+
+    if (username !== validUsername || password !== validPassword) {
       return res.status(401).json({
         error: 'Credentials invalides',
       });
