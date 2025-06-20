@@ -25,8 +25,8 @@ GET /query.php
 
 ### Paramètres requis
 
-- `username` (string) - Nom d'utilisateur (ex: sahid1)
-- `password` (string) - Mot de passe (ex: sahid1234)
+- `username` (string) - Nom d'utilisateur (ex: test)
+- `password` (string) - Mot de passe (ex: test1234)
 - `logtype` (string) - Type de log (ex: DATA)
 - `format` (string) - Format de sortie (ex: CSV)
 
@@ -42,7 +42,7 @@ GET /query.php
 ### Exemple d'utilisation
 
 ```bash
-curl "http://localhost:3000/query.php?username=sahid1&password=sahid1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00"
+curl "http://localhost:3000/query.php?username=test&password=test1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00"
 ```
 
 ### Format de réponse

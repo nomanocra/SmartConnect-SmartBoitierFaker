@@ -105,7 +105,7 @@ app.get('/query.php', (req, res) => {
     }
 
     // Vérification des credentials (simulation)
-    if (username !== 'sahid1' || password !== 'sahid1234') {
+    if (username !== 'test' || password !== 'test1234') {
       return res.status(401).json({
         error: 'Credentials invalides',
       });
@@ -173,8 +173,8 @@ app.get('/', (req, res) => {
       endpoint: '/query.php',
       method: 'GET',
       parameters: {
-        username: 'string (ex: sahid1)',
-        password: 'string (ex: sahid1234)',
+        username: 'string (ex: test)',
+        password: 'string (ex: test1234)',
         logtype: 'string (ex: DATA)',
         format: 'string (ex: CSV)',
         start_year: 'number (ex: 2025)',
@@ -186,7 +186,7 @@ app.get('/', (req, res) => {
       },
     },
     example:
-      '/query.php?username=sahid1&password=sahid1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00',
+      '/query.php?username=test&password=test1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00',
     note: "Les données sont générées depuis la date/heure spécifiée jusqu'à maintenant avec des intervalles de 5 minutes",
   });
 });
