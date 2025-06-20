@@ -82,8 +82,8 @@ function generateFakeCSVData(
   return csvContent;
 }
 
-// Route principale qui simule l'API externe
-app.get('/query.php', (req, res) => {
+// Nouvelle route principale "propre"
+app.get('/api/query', (req, res) => {
   try {
     // Récupérer les paramètres de la requête
     const {
@@ -150,12 +150,20 @@ app.get('/query.php', (req, res) => {
     // Envoyer les données CSV
     res.send(csvData);
   } catch (error) {
-    console.error('Erreur lors de la génération des données:', error);
+    console.error('Erreur dans /api/query:', error);
     res.status(500).json({
       error: 'Erreur interne du serveur',
       message: error.message,
     });
   }
+});
+
+// Ancienne route qui agit comme un "proxy" ou un "alias"
+app.get('/query.php', (req, res, next) => {
+  // Réécrire l'URL pour la faire pointer en interne vers la nouvelle route
+  req.url = '/api/query';
+  // Passer la main au routeur d'Express pour qu'il la traite
+  app._router.handle(req, res, next);
 });
 
 // Route de test pour vérifier que l'API fonctionne
@@ -174,9 +182,9 @@ app.get('/health', (req, res) => {
 app.get('/', (req, res) => {
   res.json({
     name: 'Smart Boitier Faker API',
-    description: "API faker pour simuler l'API externe de données capteurs",
+    description: "L'API qui simule ...",
     usage: {
-      endpoint: '/query.php',
+      endpoint: '/query.php (alias pour /api/query)',
       method: 'GET',
       parameters: {
         username: 'string (ex: test)',
