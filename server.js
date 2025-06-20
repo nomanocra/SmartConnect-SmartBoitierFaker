@@ -83,7 +83,7 @@ function generateFakeCSVData(
 }
 
 // Route principale qui simule l'API externe
-app.get('/query.php', (req, res) => {
+app.get('/query', (req, res) => {
   try {
     // Récupérer les paramètres de la requête
     const {
@@ -164,7 +164,7 @@ app.get('/health', (req, res) => {
     status: 'OK',
     message: 'API Faker opérationnelle',
     endpoints: {
-      '/query.php': "Simule l'API externe avec des données CSV fictives",
+      '/query': "Simule l'API externe avec des données CSV fictives",
       '/health': "Statut de l'API",
     },
   });
@@ -176,7 +176,7 @@ app.get('/', (req, res) => {
     name: 'Smart Boitier Faker API',
     description: "API faker pour simuler l'API externe de données capteurs",
     usage: {
-      endpoint: '/query.php',
+      endpoint: '/query',
       method: 'GET',
       parameters: {
         username: 'string (ex: test)',
@@ -192,7 +192,7 @@ app.get('/', (req, res) => {
       },
     },
     example:
-      '/query.php?username=test&password=test1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00',
+      '/query?username=test&password=test1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00',
     note: "Les données sont générées depuis la date/heure spécifiée jusqu'à maintenant avec des intervalles de 5 minutes",
   });
 });
@@ -200,7 +200,7 @@ app.get('/', (req, res) => {
 // Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`🚀 API Faker démarrée sur le port ${PORT}`);
-  console.log(`📊 Endpoint principal: http://localhost:${PORT}/query.php`);
+  console.log(`📊 Endpoint principal: http://localhost:${PORT}/query`);
   console.log(`🏥 Health check: http://localhost:${PORT}/health`);
   console.log(`📖 Documentation: http://localhost:${PORT}/`);
 });
