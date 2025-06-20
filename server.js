@@ -158,6 +158,14 @@ app.get('/query', (req, res) => {
   }
 });
 
+// Route de compatibilité qui redirige vers /query
+app.get('/query.php', (req, res) => {
+  // Rediriger vers la route /query avec les mêmes paramètres
+  const queryString = new URLSearchParams(req.query).toString();
+  const redirectUrl = `/query${queryString ? '?' + queryString : ''}`;
+  res.redirect(redirectUrl);
+});
+
 // Route de test pour vérifier que l'API fonctionne
 app.get('/health', (req, res) => {
   res.json({
@@ -165,6 +173,7 @@ app.get('/health', (req, res) => {
     message: 'API Faker opérationnelle',
     endpoints: {
       '/query': "Simule l'API externe avec des données CSV fictives",
+      '/query.php': 'Redirection vers /query (compatibilité)',
       '/health': "Statut de l'API",
     },
   });
@@ -176,7 +185,7 @@ app.get('/', (req, res) => {
     name: 'Smart Boitier Faker API',
     description: "API faker pour simuler l'API externe de données capteurs",
     usage: {
-      endpoint: '/query',
+      endpoint: '/query (ou /query.php pour compatibilité)',
       method: 'GET',
       parameters: {
         username: 'string (ex: test)',
@@ -193,7 +202,7 @@ app.get('/', (req, res) => {
     },
     example:
       '/query?username=test&password=test1234&logtype=DATA&format=CSV&start_year=2025&start_month=03&start_day=01&start_hour=00&start_min=00&start_sec=00',
-    note: "Les données sont générées depuis la date/heure spécifiée jusqu'à maintenant avec des intervalles de 5 minutes",
+    note: "Les données sont générées depuis la date/heure spécifiée jusqu'à maintenant avec des intervalles de 5 minutes. /query.php redirige automatiquement vers /query.",
   });
 });
 
