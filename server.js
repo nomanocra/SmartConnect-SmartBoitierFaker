@@ -64,7 +64,8 @@ function generateFakeCSVData(
     const co = (15.5 + Math.random() * 1).toFixed(6);
     const co2 = (570 + Math.random() * 10).toFixed(6);
     const voc = (4.8 + Math.random() * 0.4).toFixed(6);
-    const temperature = (20 + Math.random() * 0.5).toFixed(6);
+    const temperatureRoom1 = (20 + Math.random() * 0.5).toFixed(6);
+    const temperatureOutside = (25 + Math.random() * 0.5).toFixed(6);
     const aiSpare1 = (19.5 + Math.random() * 1).toFixed(6);
     const aiSpare2 = (19.5 + Math.random() * 1).toFixed(6);
 
@@ -74,7 +75,8 @@ function generateFakeCSVData(
     csvContent += `"${timestamp}","CO","ppm","${co}","Air Quality","info"\n`;
     csvContent += `"${timestamp}","CO2","ppm","${co2}","Air Quality","info"\n`;
     csvContent += `"${timestamp}","voc","ppm","${voc}","Air Quality","info"\n`;
-    csvContent += `"${timestamp}","Temperature","%B0C","${temperature}","Air Quality","info"\n`;
+    csvContent += `"${timestamp}","Temperature Room1","°C","${temperatureRoom1}","Air Quality","info"\n`;
+    csvContent += `"${timestamp}","Temperature Outside","°C","${temperatureOutside}","Air Quality","info"\n`;
     csvContent += `"${timestamp}","AI-Spare-1-VIN6","mA","${aiSpare1}","SiteDemoSensors","info"\n`;
     csvContent += `"${timestamp}","AI-Spare-2-VIN7","mA","${aiSpare2}","SiteDemoSensors","info"\n`;
   }

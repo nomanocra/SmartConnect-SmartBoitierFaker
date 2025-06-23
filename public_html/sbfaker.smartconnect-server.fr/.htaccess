@@ -1,0 +1,9 @@
+# Fichier de configuration pour le serveur Apache/Litespeed
+
+# Activer le moteur de réécriture d'URL
+RewriteEngine On
+
+# Règle spécifique pour le fichier query.php
+# Si la requête est EXACTEMENT pour "query.php", alors on arrête de chercher
+# et on laisse le moteur PHP l'exécuter.
+RewriteRule ^query\.php$ - [L] 
