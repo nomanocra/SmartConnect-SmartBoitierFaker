@@ -59,15 +59,15 @@ function generateFakeCSVData(
       .substring(0, 19);
 
     // Données fictives avec variations réalistes
-    const humidity = (28 + Math.random() * 2).toFixed(6);
-    const airQuality = (2.4 + Math.random() * 0.2).toFixed(6);
-    const co = (15.5 + Math.random() * 1).toFixed(6);
-    const co2 = (570 + Math.random() * 10).toFixed(6);
-    const voc = (4.8 + Math.random() * 0.4).toFixed(6);
-    const temperatureRoom1 = (20 + Math.random() * 0.5).toFixed(6);
-    const temperatureOutside = (25 + Math.random() * 0.5).toFixed(6);
-    const aiSpare1 = (19.5 + Math.random() * 1).toFixed(6);
-    const aiSpare2 = (19.5 + Math.random() * 1).toFixed(6);
+    const humidity = (28 + Math.random() * 2).toFixed(1);
+    const airQuality = (2.4 + Math.random() * 0.2).toFixed(1);
+    const co = (15.5 + Math.random() * 1).toFixed(1);
+    const co2 = (570 + Math.random() * 10).toFixed(1);
+    const voc = (4.8 + Math.random() * 0.4).toFixed(1);
+    const temperatureRoom1 = (20 + Math.random() * 0.5).toFixed(1);
+    const temperatureOutside = (25 + Math.random() * 0.5).toFixed(1);
+    const aiSpare1 = (19.5 + Math.random() * 1).toFixed(1);
+    const aiSpare2 = (19.5 + Math.random() * 1).toFixed(1);
 
     // Ajouter les lignes de données
     csvContent += `"${timestamp}","Humidity","%","${humidity}","Air Quality","info"\n`;
